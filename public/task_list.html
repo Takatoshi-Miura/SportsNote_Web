@@ -14,17 +14,31 @@
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="ja_JP">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/login.js"></script>
+    <script src="js/task_list.js"></script>
     <script src="js/common/common.js"></script>
 </head>
 
-<body onload="LOGIN.init();">
+<body onload="TASK_L.init();">
     <!----- header ----->
     <header>ヘッダー</header>
     <!----- main ----->
     <main>
-        <div>
-            <a href="task_list.html">ログイン</a>
+        <!----- sidebar ----->
+        <div class="sidebar">
+            <section>
+                <div>
+                    <h3>課題</h3>
+                </div>
+                <div>
+                    <h3>ノート</h3>
+                </div>
+                <div>
+                    <h3>目標</h3>
+                </div>
+            </section>
+        </div>
+        <div class="table">
+            
         </div>
     </main>
     <!----- footer ----->
