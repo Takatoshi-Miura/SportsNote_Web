@@ -15,20 +15,32 @@
     <meta property="og:locale" content="ja_JP">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/login.js"></script>
-    <script src="js/common/common.js"></script>
+    <script src="js/common.js"></script>
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <script src="lib/garlic.js"></script>
+    <script src="lib/firebase.js"></script>
 </head>
 
-<body onload="LOGIN.init();">
+<body onload="LOGIN.init();" style="background-color: blue;">
     <!----- header ----->
-    <header>ヘッダー</header>
     <!----- main ----->
     <main>
-        <div>
-            <a href="task_list.html">ログイン</a>
+        <div class="login_form_block">
+            <form class="login_form_inner" name="loginForm" data-persist="garlic">
+                <div>
+                    <input class="login_field" type="id" name="mail" placeholder="メールアドレス"><br>
+                    <input class="login_field" type="password" name="password" placeholder="パスワード">
+                </div>
+                <div>
+                    <button class="login_button" onclick="LOGIN.actionLogin();">ログイン</button>
+                </div>
+                <div>
+                    <button class="login_button" onclick="LOGIN.actionPasswordReset();">パスワードリセット</button>
+                </div>
+            </form>
         </div>
     </main>
     <!----- footer ----->
-    <footer>フッター</footer>
 </body>
 
 </html>
