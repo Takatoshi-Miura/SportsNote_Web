@@ -1,13 +1,22 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyDPOIelluKaZv8--wAksjl9CZrrOdqYJ40",
-  authDomain: "awesome-wares-264812.firebaseapp.com",
-  databaseURL: "https://awesome-wares-264812.firebaseio.com",
-  projectId: "awesome-wares-264812",
-  storageBucket: "awesome-wares-264812.appspot.com",
-  messagingSenderId: "850229978924",
-  appId: "1:850229978924:web:8c88bd3497c24449766e89"
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyALck2Mz8VOrBOmFnB0Rid4cZrUew9dJjM",
+  authDomain: "sportnote-b2c92.firebaseapp.com",
+  databaseURL: "https://sportnote-b2c92.firebaseio.com",
+  projectId: "sportnote-b2c92",
+  storageBucket: "sportnote-b2c92.appspot.com",
+  messagingSenderId: "300910913096",
+  appId: "1:300910913096:web:f9ee4abee6f5081d905a7d",
+  measurementId: "G-V8FP813PWF"
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
