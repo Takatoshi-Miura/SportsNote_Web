@@ -18,11 +18,11 @@
     <script src="js/common.js"></script>
     <script src="lib/jquery-3.6.0.min.js"></script>
     <script src="lib/garlic.js"></script>
-    <script type="module" src="lib/firebase.js"></script>
 </head>
 
 <body onload="LOGIN.init();" style="background-color: blue;">
     <!----- header ----->
+    <header></header>
     <!----- main ----->
     <main>
         <div class="login_form_block">
@@ -32,7 +32,8 @@
                     <input class="login_field" type="password" name="password" placeholder="パスワード">
                 </div>
                 <div>
-                    <button class="login_button" onclick="LOGIN.actionLogin();">ログイン</button>
+                    <button class="login_button" type="submit">ログイン</button>
+                    <!-- <button class="login_button" onclick="LOGIN.actionLogin();">ログイン</button> -->
                 </div>
                 <div>
                     <button class="login_button" onclick="LOGIN.actionPasswordReset();">パスワードリセット</button>
@@ -41,6 +42,69 @@
         </div>
     </main>
     <!----- footer ----->
+    <footer></footer>
+    <script type="module">
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+        import { getAuth } from "firebase/auth";
+        const firebaseConfig = {
+            apiKey: "AIzaSyALck2Mz8VOrBOmFnB0Rid4cZrUew9dJjM",
+            authDomain: "sportnote-b2c92.firebaseapp.com",
+            databaseURL: "https://sportnote-b2c92.firebaseio.com",
+            projectId: "sportnote-b2c92",
+            storageBucket: "sportnote-b2c92.appspot.com",
+            messagingSenderId: "300910913096",
+            appId: "1:300910913096:web:f9ee4abee6f5081d905a7d",
+            measurementId: "G-V8FP813PWF"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // ログイン
+        function signIn() {
+            var mailAddress = document.forms.loginForm.mail.value;
+            var password = document.forms.loginForm.password.value;
+
+            // 入力チェック
+            if (mailAddress == "" || password == "") {
+                alert("メールアドレスまたはパスワードが入力されていません。");
+                return;
+            }
+
+            firebase.auth().signInWithEmailAndPassword(mailAddress, password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                setTimeout(function() {
+                    window.location.href = './task_list.html';
+                }, 100);
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+            });
+        }
+
+        // ログアウト
+        function signOut() {
+            firebase.auth().onAuthStateChanged(user => {
+                firebase.auth().signOut()
+                .then(() => {
+                    console.log('ログアウトしました');
+                    location.reload();
+                })
+                .catch((error) => {
+                    console.log(`ログアウト時にエラーが発生しました (${error})`);
+                });
+            });
+        }
+
+        // ログイン処理追加
+        const loginButton = document.getElementsByClassName("login_button")[0];
+        loginButton.setAttribute('onclick', 'signIn();');
+    </script>
 </body>
 
 </html>
