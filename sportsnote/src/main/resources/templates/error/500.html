@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="format-detection" content="telephone=no">
+<title th:text="#{error_system_error}"></title>
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/common.css}">
+<link rel="stylesheet" th:href="@{/css/parts.css}">
+<link rel="stylesheet" th:href="@{/css/contents.css}">
+<script th:inline="javascript">
+    function toLogin() {
+        var url = /*[[${#tools.getUrl('/login/')}]]*/;
+        location.href = url;
+    }
+</script>
+</head>
+<body>
+    <!-- main -->
+    <main class="content-sm" id="error">
+    <div class="error-content">
+        <h1>500 Internal Server Error</h1>
+        <h1 th:text="#{error_system_error_desc1}"></h1>
+        <h4 th:text="#{error_system_error_desc2}"></h4>
+        <button class="btn btn-primary l-btn btn-block" onclick="toLogin()" th:text="#{error_to_login}"></button>
+    </div>
+    </main>
+</body>
+</html>
