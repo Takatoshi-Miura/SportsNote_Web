@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.it6210.sportsnote.dto.TaskDto;
 import com.it6210.sportsnote.dto.TaskSearchDto;
+import com.it6210.sportsnote.entity.Task;
 
 @Service
-public class TaskService {
+public class TaskService extends AbstractService<Task> {
 
     /**
      * 課題を検索
@@ -56,4 +57,5 @@ public class TaskService {
 
         return hasError;
     }
+
 }

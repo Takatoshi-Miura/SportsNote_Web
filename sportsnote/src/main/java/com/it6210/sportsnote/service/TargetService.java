@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.it6210.sportsnote.dto.TargetDto;
 import com.it6210.sportsnote.dto.TargetSearchDto;
+import com.it6210.sportsnote.entity.Target;
 
 @Service
-public class TargetService {
+public class TargetService extends AbstractService<Target> {
 
     /**
      * 目標を検索
@@ -56,4 +57,5 @@ public class TargetService {
 
         return hasError;
     }
+
 }

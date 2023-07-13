@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.it6210.sportsnote.dto.NoteDto;
 import com.it6210.sportsnote.dto.NoteSearchDto;
+import com.it6210.sportsnote.entity.Note;
 
 @Service
-public class NoteService {
+public class NoteService extends AbstractService<Note> {
 
     /**
      * ノートを検索
@@ -56,4 +57,5 @@ public class NoteService {
 
         return hasError;
     }
+
 }

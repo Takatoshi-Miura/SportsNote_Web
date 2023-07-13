@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AbstractDto {
+public abstract class AbstractDto {
 
     /** ユーザID */
     private String userID;

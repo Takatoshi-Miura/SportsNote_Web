@@ -24,4 +24,10 @@ public interface Constants {
 
     }
 
+    /** エラー種別 */
+    interface ERROR_TYPE {
+        int EMPTY = 0;      // 未入力
+        int INVALID = 1;    // 想定外の値
+    }
+
 }
